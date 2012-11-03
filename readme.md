@@ -13,7 +13,7 @@ demo =
     "/id-qq":
       * "div": 'sdfdf'
       "div": 'sdfdf'
-      "text"
+      "span": 'text'
       "p":
         "p.#value":
           ".cls.class.classs attr='qq.com'":
@@ -36,8 +36,9 @@ The compiled result of that JSON it this:
         <div>
             sdfdf
         </div>
-        <text>
-        </text>
+        <span>
+            text
+        </span>
         <p>
             <p class='demo-value'>
                 <div class='cls class classs' attr='qq.com'>
@@ -61,3 +62,11 @@ The compiled result of that JSON it this:
 You may have noticed that, `.clas` means `class`, `/id` means `id`,
 for some reason, attributes just follows after a white space.
 If you write LiveScript, you may like it.
+
+### Notice
+
+Need some tricks since dulicated keys are not allowed in JSON,
+so, add `*` at head to make it convert to a list.
+
+Strings like `span` can not be recognized to be string or tag,
+so, make sure you write contents in the value of JSON.

@@ -62,7 +62,7 @@ test-tmpl = ->
       "/id-qq":
         * "div": 'sdfdf'
         "div": 'sdfdf'
-        "text"
+        "span": 'text'
         "p":
           "p.#value":
             ".cls.class.classs attr='qq.com'":
