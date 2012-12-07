@@ -1,5 +1,4 @@
-var show, tmpl, fs, testTmpl, slice$ = [].slice;
-show = console.log;
+var tmpl, slice$ = [].slice;
 tmpl = function(it){
   var isArr, isObj, isStr, show, parse, wrap, generate;
   isArr = Array.isArray;
@@ -69,35 +68,3 @@ tmpl = function(it){
   };
   return generate(it);
 };
-fs = require('fs');
-testTmpl = function(){
-  var value, demo, ref$, fs;
-  value = 'demo-value';
-  demo = [
-    "span.class-demo/id-demo", {
-      ".class-demo": {
-        "/id-qq": [
-          {
-            "div": 'sdfdf'
-          }, {
-            "div": 'sdfdf'
-          }, "text", {
-            "p": (ref$ = {}, ref$["p." + value] = {
-              ".cls.class.classs attr='qq.com'": {
-                "p": {
-                  "q": {
-                    "/id.class": value
-                  }
-                }
-              }
-            }, ref$)
-          }
-        ]
-      },
-      "span": 'demo'
-    }
-  ];
-  fs = require('fs');
-  return fs.writeFile('tp.html', tmpl(demo));
-};
-testTmpl();

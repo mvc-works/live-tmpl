@@ -1,6 +1,4 @@
 
-show = console.log
-
 tmpl = ->
   isArr = Array.isArray
   isObj = ->
@@ -9,8 +7,8 @@ tmpl = ->
     rule1 and (not rule2)
   isStr = -> typeof it is \string
 
+  # show = -> console.log.apply console, arguments
   show = ->
-
 
   parse = ->
     # show \parse, "....#it......"
@@ -52,26 +50,19 @@ tmpl = ->
 
   generate it
 
-require! \fs
-
-test-tmpl = ->
-  value = \demo-value
-  demo =
-    "span.class-demo/id-demo"
-    ".class-demo":
-      "/id-qq":
-        * "div": 'sdfdf'
-        "div": 'sdfdf'
-        "span": 'text'
-        "p":
-          "p.#value":
-            ".cls.class.classs attr='qq.com'":
-              "p":
-                "q":
-                  "/id.class": value
-    "span": 'demo'
-
-  require! \fs
-  fs.write-file \tp.html (tmpl demo)
-
-test-tmpl!
+# test-tmpl = ->
+#   value = \demo-value
+#   demo =
+#     "span.class-demo/id-demo"
+#     ".class-demo":
+#       "/id-qq":
+#         * "div": 'sdfdf'
+#         "div": 'sdfdf'
+#         "span": 'text'
+#         "p":
+#           "p.#value":
+#             ".cls.class.classs attr='qq.com'":
+#               "p":
+#                 "q":
+#                   "/id.class": value
+#     "span": 'demo'
