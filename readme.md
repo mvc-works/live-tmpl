@@ -1,72 +1,76 @@
 
-### Live Template
+## Cson Template: render JSON to HTML
 
-It's great to be able to genetate HTML quickly.
-Now with LiveScript, things look better
+#### State
+ 
+Draft.
 
-Look at my code in `tmpl.ls` and there's a piece of JSON:
+* CoffeeScript don't support string interpolation in keys.  
+So it's not easy when someone wants to set different attributes.  
 
-```livescript
-demo =
-  "span.class-demo/id-demo"
-  ".class-demo":
-    "/id-qq":
-      * "div": 'sdfdf'
-      "div": 'sdfdf'
-      "span": 'text'
-      "p":
-        "p.#value":
-          ".cls.class.classs attr='qq.com'":
-            "p":
-              "q":
-                "/id.class": value
-  "span": 'demo'
+* CoffeeScript dont't have a concise array defination syntax.  
+HTML is more like a mix of JSON not JSON without array.  
+
+I'll wait if CoffeeScript begin to support those feature.  
+Also I'm trying to use a dialect of it.  
+
+### Usage
+
+Read `page/handle.js` for more details.  
+
+### Demo
+
+```coffeescript
+data =
+  "h2": "This is a Demo of Live Template"
+  "p/1": "line one"
+  "p/2": "line two"
+  "#intro.block":
+    "p/1": "the '#' sign means id"
+    "p/2": "the '.' sign means class"
+    "p/3": "the '/' has no meaning, just bypass duplicated keys"
+    "p title='title'": "attributes follow after a space"
+  "#note.block":
+    "p/1": "note that this is JSON"
+  "#more.block":
+    "p/1":
+      "span/1": "for details, visit "
+      "a href='https://github.com/jiyinyiyong/live-tmpl'": "Github"
 ```
 
-The compiled result of that JSON it this:
+converts to:
 
 ```html
-<span class='class-demo' id='id-demo'>
-</span>
-<div class='class-demo'>
-    <div id='id-qq'>
-        <div>
-            sdfdf
-        </div>
-        <div>
-            sdfdf
-        </div>
-        <span>
-            text
-        </span>
-        <p>
-            <p class='demo-value'>
-                <div class='cls class classs' attr='qq.com'>
-                    <p>
-                        <q>
-                            <div class='class' id='id'>
-                                demo-value
-                            </div>
-                        </q>
-                    </p>
-                </div>
-            </p>
-        </p>
-    </div>
+<h2>
+    This is a Demo of Live Template
+</h2>
+<p>
+    line one
+</p>
+<p>
+    line two
+</p>
+<div class="block" id="intro">
+    <p>
+        the '#' sign means id
+    </p>
+    <p>
+        the '.' sign means class
+    </p>
+    <p>
+        the '/' has no meaning, just bypass duplicated keys
+    </p>
+    <p title="title">
+        attributes follow after a space
+    </p>
 </div>
-<span>
-    demo
-</span>
-```
-
-You may have noticed that, `.clas` means `class`, `/id` means `id`,
-for some reason, attributes just follows after a white space.
-If you write LiveScript, you may like it.
-
-### Notice
-
-Need some tricks since dulicated keys are not allowed in JSON,
-so, add `*` at head to make it convert to a list.
-
-Strings like `span` can not be recognized to be string or tag,
-so, make sure you write contents in the value of JSON.
+<div class="block" id="note">
+    <p>
+        note that this is JSON
+    </p>
+</div>
+<div class="block" id="more">
+    <p>
+        <span>for details, visit</span> <a href="https://github.com/jiyinyiyong/live-tmpl">Github</a>
+    </p>
+</div>
