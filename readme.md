@@ -8,7 +8,9 @@ Now with LiveScript, I find the pretty way to generate HTML.
 ### Download
 
 It should be right here(you have to copy the code by hand if it breaks):  
-https://github.com/jiyinyiyong/live-tmpl/raw/master/page/tmpl.js
+http://jiyinyiyong.github.com/live-tmpl/page/tmpl.js
+
+Include it with a `<script>` tag and you will get a `tmpl` function.
 
 ### Demo
 
@@ -16,7 +18,7 @@ The online verison is placed at: http://jiyinyiyong.github.com/live-tmpl/page/
 Read my code in `src/` or `page` for details, here's also one:  
 
 ```livescript
-dowload-link = "https://github.com/jiyinyiyong/live-tmpl/raw/master/page/tmpl.js"
+dowload-link = "http://jiyinyiyong.github.com/live-tmpl/page/tmpl.js"
 page-link = "http://jiyinyiyong.github.com/live-tmpl/page/"
 repo-link = "https://github.com/jiyinyiyong/live-tmpl/"
 
@@ -103,7 +105,7 @@ Compiles to:
             Some links here:
         </p>
         <div class="line">
-            <a href="https://github.com/jiyinyiyong/live-tmpl/raw/master/page/tmpl.js">Download</a>
+            <a href="http://jiyinyiyong.github.com/live-tmpl/page/tmpl.js">Download</a>
             <a href="http://jiyinyiyong.github.com/live-tmpl/page/">Demo Page</a>
             <a href="https://github.com/jiyinyiyong/live-tmpl/">Github Repo</a>
         </div>
