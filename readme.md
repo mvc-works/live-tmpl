@@ -120,10 +120,11 @@ In LiveScript, `#key` means interpolation in strings, just use it.
 For some reason, attributes just follows after a white space.  
 If you write LiveScript, you may like it.
 
-### Notice
+### Future
 
-Need some tricks since dulicated keys are not allowed in JSON,
-so, add `*` at head to make it convert to a list.
+If there's a better way found, I'd like to change the design.  
+I hate brackets, but this version indents too much...  
 
-Strings like `span` can not be recognized to be string or tag,
-so, make sure you write contents in the value of JSON.
+### License
+
+MIT
