@@ -1,66 +1,123 @@
 
 ### Live Template
 
-It's great to be able to genetate HTML quickly.
-Now with LiveScript, things look better
+It's great if one can genetate HTML quickly as normal data types.  
+Now with LiveScript, I find the pretty way to generate HTML.  
 
-Look at my code in `tmpl.ls` and there's a piece of JSON:
+
+### Download
+
+It should be right here(you have to copy the code by hand if it breaks):  
+https://github.com/jiyinyiyong/live-tmpl/raw/master/page/tmpl.js
+
+### Demo
+
+The online verison is placed at: http://jiyinyiyong.github.com/live-tmpl/page/  
+Read my code in `src/` or `page` for details, here's also one:  
 
 ```livescript
+dowload-link = "https://github.com/jiyinyiyong/live-tmpl/raw/master/page/tmpl.js"
+page-link = "http://jiyinyiyong.github.com/live-tmpl/page/"
+repo-link = "https://github.com/jiyinyiyong/live-tmpl/"
+
+hope-words = '''
+  JSON is a build-in type in JavaScript. Hope everyone enjoys it.
+  More often, we need to deal with HTML in browsers.
+  For Example, the client templating in single-page apps.
+  So, why is it ugly and awful to generate HTML with JS?
+  Now I'm writting live-tmpl, trying to make it easy in LiveScript.
+  '''
+
+hope-html = hope-words.split "\n" .map -> p: it.trim!
+
 demo =
-  "span.class-demo/id-demo"
-  ".class-demo":
-    "/id-qq":
-      * "div": 'sdfdf'
-      "div": 'sdfdf'
-      "span": 'text'
-      "p":
-        "p.#value":
-          ".cls.class.classs attr='qq.com'":
-            "p":
-              "q":
-                "/id.class": value
-  "span": 'demo'
+  "/root.main name='top'":
+    * "h3": "Home page of Live-tmpl"
+    * ".list"
+        * ".line":
+            * "span.title": "Goal"
+            * ".list": hope-html
+        * ".line":
+            * span: "by"
+            * span: "Jiyin Yiyong"
+        * ".line":
+            * span: "in"
+            * span: "LiveScript"
+    * ".links":
+        * p: "Some links here:"
+        * ".line":
+            * "a href='#dowload-link'": "Download"
+            * "a href='#page-link'": "Demo Page"
+            * "a href='#repo-link'": "Github Repo"
 ```
 
-The compiled result of that JSON it this:
+Compiles to:
 
 ```html
-<span class='class-demo' id='id-demo'>
-</span>
-<div class='class-demo'>
-    <div id='id-qq'>
-        <div>
-            sdfdf
-        </div>
-        <div>
-            sdfdf
-        </div>
-        <span>
-            text
+<div class="main" id="root" name="top">
+    <h3>
+        Home page of Live-tmpl
+    </h3>
+    <div class="list">
+    </div>
+    <div class="line">
+        <span class="title">
+            Goal
         </span>
-        <p>
-            <p class='demo-value'>
-                <div class='cls class classs' attr='qq.com'>
-                    <p>
-                        <q>
-                            <div class='class' id='id'>
-                                demo-value
-                            </div>
-                        </q>
-                    </p>
-                </div>
+        <div class="list">
+            <p>
+                JSON is a build-in type in JavaScript. Hope everyone enjoys it.
             </p>
+            <p>
+                More often, we need to deal with HTML in browsers.
+            </p>
+            <p>
+                For Example, the client templating in single-page apps.
+            </p>
+            <p>
+                So, why is it ugly and awful to generate HTML with JS?
+            </p>
+            <p>
+                Now I'm writting live-tmpl, trying to make it easy in LiveScript.
+            </p>
+        </div>
+    </div>
+    <div class="line">
+        <span>
+            by
+        </span>
+        <span>
+            Jiyin Yiyong
+        </span>
+    </div>
+    <div class="line">
+        <span>
+            in
+        </span>
+        <span>
+            LiveScript
+        </span>
+    </div>
+    <div class="links">
+        <p>
+            Some links here:
         </p>
+        <div class="line">
+            <a href="https://github.com/jiyinyiyong/live-tmpl/raw/master/page/tmpl.js">Download</a>
+            <a href="http://jiyinyiyong.github.com/live-tmpl/page/">Demo Page</a>
+            <a href="https://github.com/jiyinyiyong/live-tmpl/">Github Repo</a>
+        </div>
     </div>
 </div>
-<span>
-    demo
-</span>
 ```
 
-You may have noticed that, `.clas` means `class`, `/id` means `id`,
-for some reason, attributes just follows after a white space.
+I didn't beautify that in code, so the result returns in a line.
+
+### Syntax
+
+You may have noticed that, `.clas` means `class`, `/id` means `id`,  
+In LiveScript, `#key` means interpolation in strings, just use it.  
+For some reason, attributes just follows after a white space.  
 If you write LiveScript, you may like it.
 
 ### Notice
