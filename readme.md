@@ -9,13 +9,14 @@ Now with LiveScript, I find the pretty way to generate HTML.
 Install the module from NPM by:
 
 ```
-npm install -g live-templ
+npm install -g live-tmpl
 ```
 
-And require the module in your code with:  
+And require the module and use it in your code with:  
 
 ```livescript
 {tmpl} = require("../lib/tmpl")
+console.log (tmpl data)
 ```
 
 ### Demo
@@ -38,7 +39,7 @@ hope-words = '''
 
 hope-html = hope-words.split "\n" .map -> p: it.trim!
 
-demo =
+data =
   "/root.main name='top'":
     * "h3": "Home page of Live-tmpl"
     * ".list"
