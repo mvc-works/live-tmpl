@@ -9,7 +9,7 @@ is-obj = ->
   rule2 = isArr it
   rule1 and (not rule2)
 
-window.tmpl = ->
+exports.tmpl = ->
 
   parse = ->
     # log "parse", "....#it......"
@@ -35,7 +35,9 @@ window.tmpl = ->
     unless isStr child then child = generate child
     clas-attr = if clas.length > 0 then "class='#clas'" else ''
     id-attr = if id.length > 0 then "id='#id'" else ''
-    "<#name #clas-attr #id-attr #attr>#child</#name>"
+    attrs = "#clas-attr #id-attr #attr".trim()
+    if attrs.length > 0 then attrs = " " + attrs
+    "<#{name}#{attrs}>#child</#name>"
 
   generate = ->
     # log "generate", it

@@ -1,0 +1,23 @@
+{
+  "name": "live-tmpl",
+  "version": "0.0.1",
+  "description": "a template engine based on LiveScript",
+  "main": "lib/tmpl.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jiyinyiyong/live-tmpl.git"
+  },
+  "keywords": [
+    "templating"
+  ],
+  "author": "jiyinyiyong",
+  "license": "BSD",
+  "readmeFilename": "readme.md",
+  "gitHead": "84f715fbeb3090b3b56ca8e9b219461dc92a3d43"
+}

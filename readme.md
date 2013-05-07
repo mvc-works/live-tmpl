@@ -4,13 +4,19 @@
 It's great if one can genetate HTML quickly as normal data types.  
 Now with LiveScript, I find the pretty way to generate HTML.  
 
+### Usage
 
-### Download
+Install the module from NPM by:
 
-It should be right here(you have to copy the code by hand if it breaks):  
-http://jiyinyiyong.github.com/live-tmpl/page/tmpl.js
+```
+npm install -g live-templ
+```
 
-Include it with a `<script>` tag and you will get a `tmpl` function.
+And require the module in your code with:  
+
+```livescript
+{tmpl} = require("../lib/tmpl")
+```
 
 ### Demo
 
@@ -53,7 +59,7 @@ demo =
             * "a href='#repo-link'": "Github Repo"
 ```
 
-Compiles to:
+Compiles to(after beautify):
 
 ```html
 <div class="main" id="root" name="top">
@@ -126,7 +132,3 @@ If you write LiveScript, you may like it.
 
 If there's a better way found, I'd like to change the design.  
 I hate brackets, but this version indents too much...  
-
-### License
-
-MIT
